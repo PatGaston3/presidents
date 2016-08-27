@@ -16,7 +16,7 @@
 <p>${president.display }</p>
 <p></p>
 <form action="RunMe" method="post">
-${term }
+
 <c:if test="${term <= 0 }" >
 <input type="submit" value="Previous" name="button" disabled>
 </c:if>

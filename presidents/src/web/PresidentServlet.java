@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/RunMe")
 public class PresidentServlet extends HttpServlet {
 	private static final String filename = "WEB-INF/presidents.csv";
-	private ServletContext servletContext;
+//	private ServletContext servletContext;
 	private PresDAO presDAO;
 	
 	public void init() throws ServletException {
@@ -38,7 +38,7 @@ public class PresidentServlet extends HttpServlet {
 
 	}
 	
-	@Override
+	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String previousPres = req.getParameter("button");
