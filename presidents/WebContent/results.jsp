@@ -11,7 +11,7 @@
 <body>
 	<p><em>Image will go here</em></p>
 	<br>
-	<p><em>Info will go here</em></p>
+	<p>${president.quote}</p>
 	<br>
 <p>${president.display }</p>
 <p></p>

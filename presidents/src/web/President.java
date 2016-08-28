@@ -1,9 +1,5 @@
 package web;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-
 public class President {
 	// Fields
 	private int termNumber;
@@ -13,6 +9,7 @@ public class President {
 	private int startYear;
 	private int endYear;
 	private String party;
+	private String quote;
 	private String display;
 	
 	// Constructors
@@ -20,6 +17,7 @@ public class President {
 	
 	public President(int termNumber, String firstName, String middleName, 
 			String lastName, int startYear, int endYear, String party) {
+		System.out.println("In President constructor");
 		this.termNumber = termNumber;
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -66,13 +64,22 @@ public class President {
 	public String getDisplay() {
 		return display;
 	}
+	public void setQuote(String quote){
+		System.out.println("in setQuote()");
+		this.quote = quote;
+	}
+	public String getQuote() {
+		System.out.println("in getQuote()");
+		return quote;
+	}
+	
 	
 
 	@Override
 	public String toString() {
 		return "President [termNumber=" + termNumber + ", \nfirstName=" + firstName + ", \nmiddleName=" + middleName
 				+ ", \nlastName=" + lastName + ", \nstartYear=" + startYear + ", \nendYear=" + endYear + ", \nparty=" + party
-				+ "]";
+				+ "\nquote=" + quote + "]";
 	}
 	
 }

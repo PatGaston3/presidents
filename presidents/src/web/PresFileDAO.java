@@ -1,6 +1,7 @@
 package web;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,31 +13,45 @@ import javax.servlet.ServletContext;
 public class PresFileDAO implements PresDAO{
 
 	private static final String filename = "WEB-INF/presidents.csv";
+	private static final String QUOTES = "WEB-INF/quotes.csv";
 	private ServletContext servletContext;
 	private List<President> presidents;
+
 
 	public PresFileDAO(ServletContext context) {
 		servletContext = context;
 		presidents = new ArrayList<>();
 		loadPresidentsFromFile();
+		parseQuote();
 	}
 
 	private void loadPresidentsFromFile() {
 		InputStream is = servletContext.getResourceAsStream(filename);
 		try (BufferedReader buf = new BufferedReader(new InputStreamReader(is))) {
-
 			String line;
 			while ((line = buf.readLine()) != null) {
 				President p = buildPresident(line);
 				presidents.add(p);
 			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+	}
 
+	private void parseQuote() {
+		InputStream is = servletContext.getResourceAsStream(QUOTES);
+		try (BufferedReader buf = new BufferedReader(new InputStreamReader(is))) {
+			String line;
+			int counter = 0;
+			while ((line = buf.readLine()) != null) {
+				presidents.get(counter).setQuote(line);
+				counter ++;
+			}
 		} catch (IOException e) {
 			System.err.println(e);
 		}
 	}
 	
-
 	private President buildPresident(String line) {
 		String[] tokens = line.split(",");
 		int number = Integer.parseInt(tokens[0].trim());
@@ -59,8 +74,10 @@ public class PresFileDAO implements PresDAO{
 
 	
 	public President getPresident(int term) {
-		return presidents.get(term);
+		return presidents.get(term); 
 	}
+	
+	
 	
 	public List<President> getPresidents() {
 		return presidents;

@@ -2,7 +2,6 @@ package web;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +12,12 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/RunMe")
 public class PresidentServlet extends HttpServlet {
 	private static final String filename = "WEB-INF/presidents.csv";
+	private static final String QUOTES = "WEB_INF/quotes.csv";
 //	private ServletContext servletContext;
 	private PresDAO presDAO;
 	
 	public void init() throws ServletException {
-//		System.out.println("In init method");
+		System.out.println("In init method");
 		
 		presDAO = new PresFileDAO(getServletContext());
 	}		
