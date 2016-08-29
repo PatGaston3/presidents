@@ -42,14 +42,15 @@ public class PresidentServlet extends HttpServlet {
 	
 	@Override 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String previousPres = req.getParameter("button");
-		
 		HttpSession session = req.getSession();
-		
+		String term = req.getParameter("input");
+		String previousPres = req.getParameter("button");
 		int newTerm;
-				
-		if (previousPres.equals("Previous")) {
+		if (term != null){ //term form was used
+			newTerm = Integer.parseInt(term)-1;
+		}
+		
+		else if (previousPres.equals("Previous")) {
 			newTerm = (int)session.getAttribute("term") - 1;
 		} else {
 			newTerm = (int)session.getAttribute("term") + 1;

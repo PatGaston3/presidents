@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>President Full Slider Template</title>
+<title>President Database</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">President Database</a>
+				<a class="navbar-brand">President Database</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
@@ -49,7 +49,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#">Term Number:</a></li>
 					<li>
-						<form action="RunMe">
+						<form action="RunMe" method="post">
 							<input type="text" placeholder="Enter term number" name="input">
 							<input id="button" type="submit" value="Find">
 						</form>
