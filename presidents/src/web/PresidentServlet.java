@@ -29,13 +29,14 @@ public class PresidentServlet extends HttpServlet {
 		
 	//	List<President> output = presDAO.getPresidents();
 		
-		int saveTyping = Integer.parseInt(req.getParameter("input"))-1;
+		int saveTyping = 0;
+//		int saveTyping = Integer.parseInt(req.getParameter("input"))-1;
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("term", saveTyping);
 		
 		req.setAttribute("president", presDAO.getPresident(saveTyping));
-		req.getRequestDispatcher("/results.jsp").forward(req, resp);
+		req.getRequestDispatcher("/initial.jsp").forward(req, resp);
 
 	}
 	
@@ -55,7 +56,7 @@ public class PresidentServlet extends HttpServlet {
 		}
 		req.setAttribute("president", presDAO.getPresident(newTerm));
 		session.setAttribute("term", newTerm);
-		req.getRequestDispatcher("/results.jsp").forward(req, resp);
+		req.getRequestDispatcher("/initial.jsp").forward(req, resp);
 		
 	}
 }

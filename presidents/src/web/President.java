@@ -12,6 +12,7 @@ public class President {
 	private String quote;
 	private String displayName;
 	private String displayInfo;
+	private String photo;
 	
 	// Constructors
 	public President() {}
@@ -29,10 +30,10 @@ public class President {
 		this.startYear = startYear;
 		this.endYear = endYear;
 		this.party = party;
+		this.photo = "PresImages/" + termNumber + ".jpg";
 		this.displayName =  firstName + " " + middleName + " " + lastName; 
 		
-		this.displayInfo = termNumber + " " + firstName + " " + middleName + 
-			" " + lastName + " " + startYear + "-" + endYear + " " + party; 
+		this.displayInfo = startYear + "-" + endYear + " " + party; 
 		
 	}
 
@@ -77,6 +78,9 @@ public class President {
 	public String getQuote() {
 //		System.out.println("in getQuote()");
 		return quote;
+	}
+	public String getPhoto(){
+		return photo;
 	}
 	
 	
