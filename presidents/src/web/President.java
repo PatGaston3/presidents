@@ -10,14 +10,15 @@ public class President {
 	private int endYear;
 	private String party;
 	private String quote;
-	private String display;
+	private String displayName;
+	private String displayInfo;
 	
 	// Constructors
 	public President() {}
 	
 	public President(int termNumber, String firstName, String middleName, 
 			String lastName, int startYear, int endYear, String party) {
-		System.out.println("In President constructor");
+//		System.out.println("In President constructor");
 		this.termNumber = termNumber;
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -28,7 +29,9 @@ public class President {
 		this.startYear = startYear;
 		this.endYear = endYear;
 		this.party = party;
-		this.display = termNumber + " " + firstName + " " + middleName + 
+		this.displayName =  firstName + " " + middleName + " " + lastName; 
+		
+		this.displayInfo = termNumber + " " + firstName + " " + middleName + 
 			" " + lastName + " " + startYear + "-" + endYear + " " + party; 
 		
 	}
@@ -61,15 +64,18 @@ public class President {
 		return party;
 	}
 	
-	public String getDisplay() {
-		return display;
+	public String getDisplayInfo() {
+		return displayInfo;
+	}
+	public String getDisplayName(){
+		return displayName;
 	}
 	public void setQuote(String quote){
-		System.out.println("in setQuote()");
+//		System.out.println("in setQuote()");
 		this.quote = quote;
 	}
 	public String getQuote() {
-		System.out.println("in getQuote()");
+//		System.out.println("in getQuote()");
 		return quote;
 	}
 	

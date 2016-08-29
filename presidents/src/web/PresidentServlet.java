@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@SuppressWarnings("serial")
 @WebServlet("/RunMe")
 public class PresidentServlet extends HttpServlet {
-	private static final String filename = "WEB-INF/presidents.csv";
-	private static final String QUOTES = "WEB_INF/quotes.csv";
+//	private static final String filename = "WEB-INF/presidents.csv";
+//	private static final String QUOTES = "WEB_INF/quotes.csv";
 //	private ServletContext servletContext;
 	private PresDAO presDAO;
 	
